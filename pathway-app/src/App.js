@@ -101,8 +101,8 @@ class App extends Component {
 
         <Drawer
           title="Instructions"
-          height={300}
-          onJobInfoClose={this.onInstructionsDrawerClose}
+          height={350}
+          onClose={this.onInstructionsDrawerClose}
           visible={this.state.instructionsVisbile}
           placement={"bottom"}
           footer={
@@ -137,6 +137,10 @@ class App extends Component {
                 you are ready to see the next job site, click the close button
                 and continue exploring!
               </p>
+              <p>
+                <i>Note:</i> You cannot continue exploring the map until after
+                you have closed the information panel for that particular job.
+              </p>
             </Col>
           </Row>
         </Drawer>
@@ -144,7 +148,7 @@ class App extends Component {
         <Drawer
           title="Job Information Panel"
           height={300}
-          onJobInfoClose={this.onJobInfoClose}
+          onClose={this.onJobInfoClose}
           visible={this.state.jobinfovisible}
           placement={"bottom"}
           footer={
