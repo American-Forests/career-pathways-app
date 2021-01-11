@@ -174,6 +174,7 @@ class App extends Component {
           className="map"
           center={position}
           zoom={this.state.landingLocation.zoom}
+          zoomControl={false}
         >
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
