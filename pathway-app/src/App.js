@@ -5,7 +5,7 @@ import { Component, Fragment } from "react";
 import locationPin from "./data/betterIcon.svg";
 import locationPin2 from "./data/betterIcon2.svg";
 import L, { point } from "leaflet";
-import { Button, Drawer, Col, Row } from "antd";
+import { Button, Drawer, Col, Row, Modal } from "antd";
 
 const myIcon = L.icon({
   iconUrl: locationPin,
@@ -30,7 +30,8 @@ class App extends Component {
         description: "this was a cool thingy",
       },
       data: afmapdata,
-      visible: false,
+      jobinfovisible: false,
+      instructionsVisbile: true,
     };
   }
 
@@ -61,37 +62,48 @@ class App extends Component {
     this.setState({
       landingLocation: newLandingLocation,
       currentPointOfInterest: pointOfInterest,
-      visible: true,
+      jobinfovisible: true,
     });
   };
 
-  showDrawer = () => {
+  showJobInfoDrawer = () => {
     this.setState({
-      visible: true,
+      jobinfovisible: true,
     });
   };
 
-  onClose = () => {
+  onJobInfoClose = () => {
     this.setState({
-      visible: false,
+      jobinfovisible: false,
     });
   };
 
+  showInstructionsDrawer = () => {
+    this.setState({
+      instructionsVisbile: true,
+    });
+  };
+
+  onInstructionsDrawerClose = () => {
+    this.setState({
+      instructionsVisbile: false,
+    });
+  };
   render() {
     const position = [
       this.state.landingLocation.lat,
       this.state.landingLocation.lng,
     ];
-    console.log(this.state);
 
     return (
       <Fragment>
         <Nav />
+
         <Drawer
-          title="Job Information Panel"
+          title="Instructions"
           height={300}
-          onClose={this.onClose}
-          visible={this.state.visible}
+          onJobInfoClose={this.onInstructionsDrawerClose}
+          visible={this.state.instructionsVisbile}
           placement={"bottom"}
           footer={
             <div
@@ -99,7 +111,49 @@ class App extends Component {
                 textAlign: "right",
               }}
             >
-              <Button onClick={this.onClose} type="primary">
+              <Button onClick={this.onInstructionsDrawerClose} type="primary">
+                Close
+              </Button>
+            </div>
+          }
+        >
+          <Row gutter={16}>
+            <Col span={12}>
+              <b>How to Look at Individual Jobs: </b> <br />
+              <p>
+                Please being by zoom in and out of various parts of the map to
+                view to see the different locations of each career pathway.
+              </p>
+              <p>
+                When you feel like are ready to look at a particular job
+                location more closely, click on the icon associated with that
+                location.
+              </p>
+              <p>
+                This icon will turn red, indicating that this is the location
+                you are currently viewing more information for. A scrollabe
+                panel will pop up containing a description for that particular
+                location. After you have finished reading the description and
+                you are ready to see the next job site, click the close button
+                and continue exploring!
+              </p>
+            </Col>
+          </Row>
+        </Drawer>
+
+        <Drawer
+          title="Job Information Panel"
+          height={300}
+          onJobInfoClose={this.onJobInfoClose}
+          visible={this.state.jobinfovisible}
+          placement={"bottom"}
+          footer={
+            <div
+              style={{
+                textAlign: "right",
+              }}
+            >
+              <Button onClick={this.onJobInfoClose} type="primary">
                 Close
               </Button>
             </div>

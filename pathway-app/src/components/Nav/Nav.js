@@ -1,7 +1,7 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { Component } from "react";
 import { Dropdown, Menu, Badge } from "antd";
-import { ProjectOutlined, MenuOutlined } from "@ant-design/icons";
+import { QuestionCircleOutlined, MenuOutlined } from "@ant-design/icons";
 import styles from "./Nav.css";
 import logo from "../../data/aflogo.png"; // Tell Webpack this JS file uses this image
 
@@ -43,6 +43,18 @@ const staticSiteMenu = (
 export class Nav extends Component {
   state = {};
 
+  showInstructionsDrawer = () => {
+    this.setState({
+      instructionsVisbile: true,
+    });
+  };
+
+  onInstructionsDrawer = () => {
+    this.setState({
+      instructionsVisbile: false,
+    });
+  };
+
   render() {
     return (
       <div
@@ -71,7 +83,7 @@ export class Nav extends Component {
             width: "170px",
             height: "110px",
             position: "fixed",
-            left: "20px",
+            left: "10px",
             top: 0,
             boxShadow: "0 1px 7px rgba(0, 0, 0, 0.2)",
             zIndex: 1000,
@@ -84,6 +96,23 @@ export class Nav extends Component {
             height="100"
           />
         </a>
+
+        <div
+          style={{
+            position: "absolute",
+            right: "82px",
+            top: "10px",
+            color: "#FFFFFF",
+          }}
+        >
+          <a
+            className="ant-dropdown-link"
+            onClick={(e) => e.preventDefault()}
+            style={{ color: "#555555" }}
+          >
+            <QuestionCircleOutlined /> <b>Instructions</b>
+          </a>
+        </div>
 
         <div
           style={{
@@ -103,7 +132,6 @@ export class Nav extends Component {
           >
             <a
               className="ant-dropdown-link"
-              href="#TODO"
               onClick={(e) => e.preventDefault()}
               style={{ color: "#555555" }}
             >
