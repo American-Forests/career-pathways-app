@@ -86,7 +86,7 @@ class App extends Component {
 
     return (
       <Fragment>
-        <Nav></Nav>
+        <Nav />
         <Drawer
           title="Job Information Panel"
           height={300}
@@ -159,6 +159,7 @@ class App extends Component {
                         this.state.currentPointOfInterest &&
                         this.state.currentPointOfInterest["link"]
                       }
+                      target="_blank"
                     >
                       Click Here to Learn More
                     </a>
