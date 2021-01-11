@@ -1,0 +1,32 @@
+@import "~antd/dist/antd.css";
+
+body {
+  margin: 0px;
+  width: 100vw;
+  height: 100vh;
+}
+
+#root {
+  height: 100%;
+}
+
+.map {
+  height: 100%;
+}
+
+.navTile {
+  width: 400px;
+  position: absolute !important;
+  right: 10px;
+  top: 10px;
+  z-index: 1000;
+  margin-bottom: 10px;
+}
+
+.interestTile {
+  width: 400px;
+  position: absolute !important;
+  right: 10px;
+  top: 200px;
+  z-index: 1000;
+}
