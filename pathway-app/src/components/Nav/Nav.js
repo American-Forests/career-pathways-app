@@ -107,7 +107,7 @@ export class Nav extends Component {
         >
           <a
             className="ant-dropdown-link"
-            onClick={(e) => e.preventDefault()}
+            onClick={() => this.props.onClick()}
             style={{ color: "#555555" }}
           >
             <QuestionCircleOutlined /> <b>Instructions</b>

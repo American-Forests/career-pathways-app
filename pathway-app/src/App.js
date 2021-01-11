@@ -97,7 +97,7 @@ class App extends Component {
 
     return (
       <Fragment>
-        <Nav />
+        <Nav onClick={() => this.showInstructionsDrawer()} />
 
         <Drawer
           title="Instructions"
