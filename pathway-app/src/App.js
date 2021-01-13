@@ -273,7 +273,7 @@ class App extends Component {
               }}
             >
               <div>
-                <Row gutter={16}>
+                <Row gutter={16} style={{ paddingBottom: "15px" }}>
                   <Select
                     showSearch
                     style={{ width: 200 }}
