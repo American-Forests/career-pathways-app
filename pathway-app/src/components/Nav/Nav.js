@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { Component } from "react";
-import { Dropdown, Menu, Badge } from "antd";
+import { Dropdown, Menu, Badge, Button } from "antd";
 import { QuestionCircleOutlined, MenuOutlined } from "@ant-design/icons";
 import styles from "./Nav.css";
 import logo from "../../data/aflogo.png"; // Tell Webpack this JS file uses this image
@@ -57,21 +57,21 @@ export class Nav extends Component {
 
   render() {
     return (
-      <div
-        className={styles.taffybar}
-        style={{
-          height: "40px",
-          background: "#FFFFFF",
-          width: "100%",
-          color: "#555555",
-          position: "fixed",
-          //   left: 0,
-          //   top: 0,
-          zIndex: 1000,
-          boxShadow: "0 1px 7px rgba(0, 0, 0, 0.2)",
-        }}
-      >
-        <a
+      // <div
+      //   className={styles.taffybar}
+      //   style={{
+      //     height: "40px",
+      //     background: "#FFFFFF",
+      //     width: "100%",
+      //     color: "#555555",
+      //     position: "fixed",
+      //     //   left: 0,
+      //     //   top: 0,
+      //     zIndex: 1000,
+      //     boxShadow: "0 1px 7px rgba(0, 0, 0, 0.2)",
+      //   }}
+      // >
+      /* <a
           className="brand"
           href="/"
           title="American Forests"
@@ -95,26 +95,27 @@ export class Nav extends Component {
             width="170"
             height="100"
           />
-        </a>
+        </a> */
 
-        <div
-          style={{
-            position: "absolute",
-            right: "82px",
-            top: "10px",
-            color: "#FFFFFF",
-          }}
+      <Button
+        style={{
+          position: "absolute",
+          right: "20px",
+          top: "10px",
+          color: "#FFFFFF",
+          zIndex: 1000,
+        }}
+      >
+        <a
+          className="ant-dropdown-link"
+          onClick={() => this.props.onClick()}
+          style={{ color: "#555555" }}
         >
-          <a
-            className="ant-dropdown-link"
-            onClick={() => this.props.onClick()}
-            style={{ color: "#555555" }}
-          >
-            <QuestionCircleOutlined /> <b>Instructions</b>
-          </a>
-        </div>
+          <QuestionCircleOutlined /> <b>Instructions</b>
+        </a>
+      </Button>
 
-        <div
+      /* <div
           style={{
             position: "absolute",
             right: "20px",
@@ -138,8 +139,8 @@ export class Nav extends Component {
               <MenuOutlined /> <b>Menu</b>
             </a>
           </Dropdown>
-        </div>
-      </div>
+        </div> */
+      // </div>
     );
   }
 }

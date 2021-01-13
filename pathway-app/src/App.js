@@ -23,12 +23,12 @@ const smolWindow = 855;
 
 const myIcon = L.icon({
   iconUrl: locationPin,
-  iconSize: [50, 42],
+  iconSize: [30, 25.2],
 });
 
 const curIcon = L.icon({
   iconUrl: locationPin2,
-  iconSize: [50, 42],
+  iconSize: [30, 25.2],
 });
 
 class App extends Component {
@@ -36,6 +36,7 @@ class App extends Component {
     super(props);
     let afmapdata = require("./data/career_paths.json");
     this.state = {
+      map: null,
       currentPointOfInterest: null,
       landingLocation: {
         lat: 41.850033,
@@ -69,8 +70,8 @@ class App extends Component {
     };
 
     const newLandingLocation = {
-      lat: pointOfInterest.Lat,
-      lng: pointOfInterest.Lon,
+      lat: pointOfInterest.Lat + 0.0,
+      lng: pointOfInterest.Lon + 0.03,
       zoom: 12,
     };
     this.setState({
@@ -128,6 +129,9 @@ class App extends Component {
     ];
 
     console.log("inner width", window.innerWidth);
+    if (this.map) {
+      console.log(this.map.leafletElement.getZoom());
+    }
 
     return (
       <Fragment>
@@ -137,6 +141,7 @@ class App extends Component {
           title="Instructions"
           visible={this.state.instructionsVisbile}
           onOk={this.onInstructionsDrawerClose}
+          onCancel={this.onInstructionsDrawerClose}
         >
           <Row gutter={16}>
             <p>
@@ -169,10 +174,11 @@ class App extends Component {
           <Fragment>
             <Drawer
               title="Job Information Panel"
-              height={300}
+              // height={300}
+              mask={false}
               onClose={this.onJobInfoClose}
               visible={this.state.jobinfovisible}
-              placement={"bottom"}
+              placement={"right"}
               footer={
                 <div
                   style={{
@@ -367,7 +373,10 @@ class App extends Component {
           className="map"
           center={position}
           zoom={this.state.landingLocation.zoom}
-          zoomControl={false}
+          // zoomControl={false}
+          ref={(ref) => {
+            this.map = ref;
+          }}
         >
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
