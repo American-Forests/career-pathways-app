@@ -145,7 +145,7 @@ class App extends Component {
         >
           <Row gutter={16}>
             <p>
-              <b>Welcome to the Career Pathways Dashboard!</b>
+              <b>Urban Forestry Job Training Programs</b>
             </p>
             <p>
               Please being by zoom in and out of various parts of the map to
