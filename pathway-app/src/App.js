@@ -318,12 +318,10 @@ class App extends Component {
                 </Row>
                 <Row gutter={16}>
                   <p>
-                    {this.state.currentPointOfInterest && <b>Description: </b>}
-                    {this.state.currentPointOfInterest && (
-                        <b>Description: </b>
-                      ) &&
-                      (this.state.currentPointOfInterest["additional.notes"] ||
-                        "No Description Available")}
+                    {this.state.currentPointOfInterest && <b>Overview: </b>}
+                    {this.state.currentPointOfInterest && <b>Overview: </b> &&
+                      (this.state.currentPointOfInterest["Overview"] ||
+                        "No Overview Available")}
                   </p>
                 </Row>
                 <Row gutter={16}>
@@ -341,20 +339,26 @@ class App extends Component {
                 </Row>
                 <Row gutter={16}>
                   <p>
-                    {this.state.currentPointOfInterest && <b>Notes: </b>}
-                    {this.state.currentPointOfInterest && <b>Notes: </b> &&
-                      (this.state.currentPointOfInterest["otherNotes"] ||
+                    {this.state.currentPointOfInterest && (
+                      <b>Training/Credentials: </b>
+                    )}
+                    {this.state.currentPointOfInterest && (
+                        <b>Training/Credentials: </b>
+                      ) &&
+                      (this.state.currentPointOfInterest[
+                        "Training.Credentials.Offered"
+                      ] ||
                         "No Notes Available")}
                   </p>
                 </Row>
                 <Row gutter={16}>
                   {this.state.currentPointOfInterest &&
-                    ((this.state.currentPointOfInterest["link"] && (
+                    ((this.state.currentPointOfInterest["Link"] && (
                       <b>
                         <a
                           href={
                             this.state.currentPointOfInterest &&
-                            this.state.currentPointOfInterest["link"]
+                            this.state.currentPointOfInterest["Link"]
                           }
                           target="_blank"
                         >
