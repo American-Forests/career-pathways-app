@@ -1,8 +1,8 @@
 import React, { Fragment } from "react";
-import { Space, Row, Card, Select } from "antd";
+import { Space, Row, Card } from "antd";
+import { Dropdown } from "../Dropdown/Dropdown";
 
 export function InfoCard(props) {
-  const { Option } = Select;
   return (
     <Fragment>
       <Card
@@ -18,36 +18,12 @@ export function InfoCard(props) {
           maxHeight: "800px",
         }}
       >
-        <div style={{}}>
-          <Row gutter={16} style={{ paddingBottom: "15px" }}>
-            <Select
-              showSearch
-              style={{ width: 200 }}
-              placeholder="Select An Organization"
-              optionFilterProp="children"
-              value={props.currentPointOfInterest.key}
-              onChange={(e) => {
-                props.onSelection(e);
-              }}
-              filterOption={(input, option) => {
-                console.log(option);
-                return (
-                  option.children.toLowerCase().indexOf(input.toLowerCase()) >=
-                  0
-                );
-              }}
-            >
-              {Object.keys(props.data).map((key, index) => {
-                let currentSpot = props.data[key];
-
-                return (
-                  <Option key={key} value={key}>
-                    {currentSpot["Org"]}
-                  </Option>
-                );
-              })}
-            </Select>
-          </Row>
+        <div>
+          <Dropdown
+            currentPointOfInterest={props.currentPointOfInterest}
+            data={props.data}
+            onSelection={props.onSelection}
+          />
           <Space direction="vertical" size="100" />
           {props.currentPointOfInterest && props.currentPointOfInterest["Org"] && (
             <Row gutter={8}>
