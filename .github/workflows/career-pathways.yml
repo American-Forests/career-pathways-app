@@ -29,8 +29,8 @@ jobs:
         restore-keys: |
           ${{ runner.OS }}-node-
           ${{ runner.OS }}-
-    - run: cd pathways-app && npm install
-    - run: cd pathways-app && npm run-script build
+    - run: cd pathway-app && npm install
+    - run: cd pathway-app && npm run-script build
     - run: aws s3 sync pathways-app/build/ s3://maps.americanforests.org/career-pathways/ --exclude ".git/*" --exclude "./.gitignore" --exclude ".github/*" --delete
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
