@@ -5,19 +5,25 @@ import { InfoDrawer } from "./components/InfoDrawer/InfoDrawer";
 import { InfoCard } from "./components/InfoCard/InfoCard";
 import { Map, TileLayer, Marker } from "react-leaflet";
 import { Component, Fragment } from "react";
-import locationPin from "./data/betterIcon.svg";
-import locationPin2 from "./data/betterIcon2.svg";
+import regularPin from "./data/regularIcon.svg";
+import activePin from "./data/activeIcon.svg";
+import afProjPin from "./data/afProjIcon.svg";
 import L from "leaflet";
 
 const smolWindow = 855;
 
-const myIcon = L.icon({
-  iconUrl: locationPin,
+const regIcon = L.icon({
+  iconUrl: regularPin,
+  iconSize: [30, 25.2],
+});
+
+const afProjIcon = L.icon({
+  iconUrl: afProjPin,
   iconSize: [30, 25.2],
 });
 
 const curIcon = L.icon({
-  iconUrl: locationPin2,
+  iconUrl: activePin,
   iconSize: [30, 25.2],
 });
 
@@ -160,7 +166,9 @@ class App extends Component {
                 icon={
                   this.state.currentPointOfInterest.key === key
                     ? curIcon
-                    : myIcon
+                    : currentSpot["Blurb.on.AF.involvement"]
+                    ? afProjIcon
+                    : regIcon
                 }
               ></Marker>
             );
