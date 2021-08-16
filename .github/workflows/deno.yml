@@ -1,0 +1,38 @@
+name: Production Career Pathways Build
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build_project_map:
+    runs-on: ubuntu-latest
+        
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js 12.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.x
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+    - name: Install AWS CLI
+      run: |
+        pip install awscli
+    - name: Cache Node.js modules
+      uses: actions/cache@v2
+      with:
+        # npm cache files are stored in `~/.npm` on Linux/macOS
+        path: ~/.npm 
+        key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.OS }}-node-
+          ${{ runner.OS }}-
+    - run: cd pathways-app && npm install
+    - run: cd pathways-app && npm run-script build
+    - run: aws s3 sync pathways-app/build/ s3://maps.americanforests.org/career-pathways/ --exclude ".git/*" --exclude "./.gitignore" --exclude ".github/*" --delete
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
