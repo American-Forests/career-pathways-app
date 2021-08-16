@@ -156,7 +156,6 @@ export class Nav extends Component {
                 color: "#555555",
               }}
               onClick={() => this.props.onClick()}
-              href="#"
             >
               <QuestionCircleOutlined /> <b>Instructions</b>
             </button>

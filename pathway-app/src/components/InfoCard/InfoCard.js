@@ -122,10 +122,7 @@ export function InfoCard(props) {
             <Row gutter={8}>
               <b>
                 <a
-                  href={
-                    props.currentPointOfInterest &&
-                    props.currentPointOfInterest["Link"]
-                  }
+                  href={props.currentPointOfInterest["Link"]}
                   target="_blank"
                   ref="noreferrer"
                 >
