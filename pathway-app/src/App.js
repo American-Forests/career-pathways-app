@@ -151,31 +151,19 @@ class App extends Component {
           />
           {Object.keys(this.state.data).map((key, index) => {
             let currentSpot = this.state.data[key];
-            if (
-              this.state.currentPointOfInterest &&
-              this.state.currentPointOfInterest.key === key
-            ) {
-              let coordinates = [currentSpot["Lat"], currentSpot["Lon"]];
-              return (
-                <Marker
-                  key={currentSpot["Program"]}
-                  position={coordinates}
-                  onClick={() => this.onIconClickHandler(key)}
-                  icon={curIcon}
-                ></Marker>
-              );
-            }
-            if (currentSpot.Lat) {
-              let coordinates = [currentSpot["Lat"], currentSpot["Lon"]];
-              return (
-                <Marker
-                  key={currentSpot["Program"]}
-                  position={coordinates}
-                  onClick={() => this.onIconClickHandler(key)}
-                  icon={myIcon}
-                ></Marker>
-              );
-            }
+            let coordinates = [currentSpot["Lat"], currentSpot["Lon"]];
+            return (
+              <Marker
+                key={key}
+                position={coordinates}
+                onClick={() => this.onIconClickHandler(key)}
+                icon={
+                  this.state.currentPointOfInterest.key === key
+                    ? curIcon
+                    : myIcon
+                }
+              ></Marker>
+            );
           })}
         </Map>
       </Fragment>
