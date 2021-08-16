@@ -58,6 +58,16 @@ export function InfoDrawer(props) {
               </Col>
             </Row>
           )}
+        {props.currentPointOfInterest &&
+          props.currentPointOfInterest["Images"] && (
+            <Row gutter={8}>
+              <img
+                src={props.currentPointOfInterest["Images"]}
+                width="100%"
+                height="100%"
+              ></img>
+            </Row>
+          )}
         {props.currentPointOfInterest && (
           <Row gutter={16}>
             {" "}
