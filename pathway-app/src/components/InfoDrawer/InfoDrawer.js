@@ -63,6 +63,7 @@ export function InfoDrawer(props) {
             <Row gutter={8}>
               <img
                 src={props.currentPointOfInterest["Images"]}
+                alt={`image associated with ${props.currentPointOfInterest["Org"]}`}
                 width="100%"
                 height="100%"
               ></img>
@@ -98,7 +99,11 @@ export function InfoDrawer(props) {
           <Row gutter={16}>
             <Col span={24}>
               <b>
-                <a href={props.currentPointOfInterest["Link"]} target="_blank">
+                <a
+                  href={props.currentPointOfInterest["Link"]}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   Click Here to Learn More
                 </a>
               </b>

@@ -10,18 +10,14 @@ const smolWindow = 855;
 const staticSiteMenu = (
   <Menu>
     <Menu.Item>
-      <a
-        rel="noopener noreferrer"
-        href={`https://americanforests.org/`}
-        target="_blank"
-      >
+      <a rel="noopener noreferrer" href={staticSiteUrl} target="_blank">
         Home
       </a>
     </Menu.Item>
     <Menu.Item>
       <a
         rel="noopener noreferrer"
-        href={`https://www.americanforests.org/our-work/urban-forestry/workforce-development/`}
+        href={`${staticSiteUrl}/our-work/urban-forestry/workforce-development/`}
         target="_blank"
       >
         Career Pathways
@@ -101,6 +97,7 @@ export class Nav extends Component {
                 className="ant-dropdown-link"
                 onClick={() => this.props.onClick()}
                 style={{ color: "#555555" }}
+                href="#"
               >
                 <QuestionCircleOutlined /> <b>Instructions</b>
               </a>
@@ -126,6 +123,7 @@ export class Nav extends Component {
                   className="ant-dropdown-link"
                   onClick={(e) => e.preventDefault()}
                   style={{ color: "#555555" }}
+                  href="#"
                 >
                   <MenuOutlined /> <b>Menu</b>
                 </a>
@@ -148,6 +146,7 @@ export class Nav extends Component {
               className="ant-dropdown-link"
               onClick={() => this.props.onClick()}
               style={{ color: "#555555" }}
+              href="#"
             >
               <QuestionCircleOutlined /> <b>Instructions</b>
             </a>

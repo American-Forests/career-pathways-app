@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Space, Button, Drawer, Col, Row, Card, Select } from "antd";
+import { Space, Row, Card, Select } from "antd";
 
 export function InfoCard(props) {
   const { Option } = Select;
@@ -46,6 +46,8 @@ export function InfoCard(props) {
                       {currentSpot["Org"]}
                     </Option>
                   );
+                } else {
+                  return;
                 }
               })}
             </Select>
@@ -91,6 +93,7 @@ export function InfoCard(props) {
               <Row gutter={8}>
                 <img
                   src={props.currentPointOfInterest["Images"]}
+                  alt={`image associated with ${props.currentPointOfInterest["Org"]}`}
                   width="100%"
                   height="100%"
                 ></img>

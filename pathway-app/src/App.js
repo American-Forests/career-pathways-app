@@ -153,7 +153,7 @@ class App extends Component {
             let currentSpot = this.state.data[key];
             if (
               this.state.currentPointOfInterest &&
-              this.state.currentPointOfInterest.key == key
+              this.state.currentPointOfInterest.key === key
             ) {
               let coordinates = [currentSpot["Lat"], currentSpot["Lon"]];
               return (
