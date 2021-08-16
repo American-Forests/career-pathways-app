@@ -4,6 +4,7 @@ library('tidyverse')
 library('jsonlite')
 
 cdata <- read.csv("./completed_raw.csv", skip=1, na.strings=c("", "n/a")) 
+cdata <- read.csv("./career_pathways_raw2.csv", skip=1, na.strings=c("", "n/a")) 
   
 data <- read.csv("./career_pathways_raw.csv", skip=1, na.strings=c("", "n/a")) 
 links <- read.csv("./links_raw.csv", skip=1, na.strings=c("", "n/a")) %>%

@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { Component } from "react";
-import { Dropdown, Menu, Badge, Button } from "antd";
+import { Dropdown, Menu, Button } from "antd";
 import { QuestionCircleOutlined, MenuOutlined } from "@ant-design/icons";
 import styles from "./Nav.css";
 import logo from "../../data/aflogo.png"; // Tell Webpack this JS file uses this image
