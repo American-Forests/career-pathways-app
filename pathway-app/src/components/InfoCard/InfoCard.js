@@ -124,7 +124,7 @@ export function InfoCard(props) {
                 <a
                   href={props.currentPointOfInterest["Link"]}
                   target="_blank"
-                  ref="noreferrer"
+                  rel="noreferrer"
                 >
                   Click Here to Learn More
                 </a>
