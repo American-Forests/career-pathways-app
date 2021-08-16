@@ -93,7 +93,7 @@ export function InfoCard(props) {
               <Row gutter={8}>
                 <img
                   src={props.currentPointOfInterest["Images"]}
-                  alt={`image associated with ${props.currentPointOfInterest["Org"]}`}
+                  alt={`picture of ${props.currentPointOfInterest["Org"]}`}
                   width="100%"
                   height="100%"
                 ></img>
@@ -131,6 +131,7 @@ export function InfoCard(props) {
                     props.currentPointOfInterest["Link"]
                   }
                   target="_blank"
+                  ref="noreferrer"
                 >
                   Click Here to Learn More
                 </a>
