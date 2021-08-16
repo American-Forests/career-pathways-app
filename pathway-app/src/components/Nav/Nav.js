@@ -148,14 +148,18 @@ export class Nav extends Component {
               zIndex: 1000,
             }}
           >
-            <a
+            <button
               className="ant-dropdown-link"
+              style={{
+                background: "none",
+                border: "none",
+                color: "#555555",
+              }}
               onClick={() => this.props.onClick()}
-              style={{ color: "#555555" }}
               href="#"
             >
               <QuestionCircleOutlined /> <b>Instructions</b>
-            </a>
+            </button>
           </Button>
         )}
       </Fragment>

@@ -40,15 +40,11 @@ export function InfoCard(props) {
               {Object.keys(props.data).map((key, index) => {
                 let currentSpot = props.data[key];
 
-                if (currentSpot.Lat) {
-                  return (
-                    <Option key={key} value={key}>
-                      {currentSpot["Org"]}
-                    </Option>
-                  );
-                } else {
-                  return;
-                }
+                return (
+                  <Option key={key} value={key}>
+                    {currentSpot["Org"]}
+                  </Option>
+                );
               })}
             </Select>
           </Row>
