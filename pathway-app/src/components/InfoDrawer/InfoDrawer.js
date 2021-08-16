@@ -63,7 +63,7 @@ export function InfoDrawer(props) {
             <Row gutter={8}>
               <img
                 src={props.currentPointOfInterest["Images"]}
-                alt={`pictures of ${props.currentPointOfInterest["Org"]}`}
+                alt={props.currentPointOfInterest["Org"]}
                 width="100%"
                 height="100%"
               ></img>

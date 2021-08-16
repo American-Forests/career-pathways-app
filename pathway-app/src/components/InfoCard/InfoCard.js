@@ -93,7 +93,7 @@ export function InfoCard(props) {
               <Row gutter={8}>
                 <img
                   src={props.currentPointOfInterest["Images"]}
-                  alt={`picture of ${props.currentPointOfInterest["Org"]}`}
+                  alt={props.currentPointOfInterest["Org"]}
                   width="100%"
                   height="100%"
                 ></img>
