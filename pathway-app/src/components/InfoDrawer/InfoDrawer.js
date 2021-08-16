@@ -22,29 +22,31 @@ export function InfoDrawer(props) {
           </div>
         }
       >
-        {props.currentPointOfInterest["Org"] && (
+        {props.currentPointOfInterest && props.currentPointOfInterest["Org"] && (
           <Row gutter={16}>
             <Col span={12}>
               <b>Organization:</b> {props.currentPointOfInterest["Org"]}
             </Col>
           </Row>
         )}
-        {props.currentPointOfInterest["Program"] && (
-          <Row gutter={16}>
-            <Col span={24}>
-              <b>Program: </b>
-              {props.currentPointOfInterest["Program"]}
-            </Col>
-          </Row>
-        )}
-        {props.currentPointOfInterest["Overview"] && (
-          <Row gutter={16}>
-            <Col span={24}>
-              <b>Description: </b>
-              {props.currentPointOfInterest["Overview"]}
-            </Col>
-          </Row>
-        )}
+        {props.currentPointOfInterest &&
+          props.currentPointOfInterest["Program"] && (
+            <Row gutter={16}>
+              <Col span={24}>
+                <b>Program: </b>
+                {props.currentPointOfInterest["Program"]}
+              </Col>
+            </Row>
+          )}
+        {props.currentPointOfInterest &&
+          props.currentPointOfInterest["Overview"] && (
+            <Row gutter={16}>
+              <Col span={24}>
+                <b>Description: </b>
+                {props.currentPointOfInterest["Overview"]}
+              </Col>
+            </Row>
+          )}
         {props.currentPointOfInterest &&
           props.currentPointOfInterest["Blurb.on.AF.involvement"] && (
             <Row gutter={16}>
@@ -56,45 +58,43 @@ export function InfoDrawer(props) {
               </Col>
             </Row>
           )}
-        <Row gutter={16}>
-          <Col span={24}>
-            <b>City, State: </b>
-            {(props.currentPointOfInterest &&
-              props.currentPointOfInterest["City"]) ||
-              "No City Available"}
-            {", "}
-            {(props.currentPointOfInterest &&
-              props.currentPointOfInterest["State"]) ||
-              "No State Available"}
-          </Col>
-        </Row>
-        <Row gutter={16}>
-          <Col span={12}>
-            <b>Notes: </b>
-            {(props.currentPointOfInterest &&
-              props.currentPointOfInterest["otherNotes"]) ||
-              "No Notes Available"}
-          </Col>
-        </Row>
-        <Row gutter={16}>
-          <Col span={24}>
-            {(props.currentPointOfInterest &&
-              props.currentPointOfInterest["link"] && (
-                <b>
-                  <a
-                    href={
-                      props.currentPointOfInterest &&
-                      props.currentPointOfInterest["link"]
-                    }
-                    target="_blank"
-                  >
-                    Click Here to Learn More
-                  </a>
-                </b>
-              )) ||
-              "No link available"}
-          </Col>
-        </Row>
+        {props.currentPointOfInterest && (
+          <Row gutter={16}>
+            {" "}
+            <Col span={24}>
+              {" "}
+              <b>City, State: </b>
+              {(props.currentPointOfInterest &&
+                props.currentPointOfInterest["City"]) ||
+                "No City Available"}
+              {", "}
+              {(props.currentPointOfInterest &&
+                props.currentPointOfInterest["State"]) ||
+                "No State Available"}
+            </Col>
+          </Row>
+        )}
+        {props.currentPointOfInterest &&
+          props.currentPointOfInterest["otherNotes"] && (
+            <Row gutter={16}>
+              {" "}
+              <Col span={12}>
+                <b>Notes: </b>
+                {props.currentPointOfInterest["otherNotes"]}
+              </Col>
+            </Row>
+          )}
+        {props.currentPointOfInterest && props.currentPointOfInterest["Link"] && (
+          <Row gutter={16}>
+            <Col span={24}>
+              <b>
+                <a href={props.currentPointOfInterest["Link"]} target="_blank">
+                  Click Here to Learn More
+                </a>
+              </b>
+            </Col>
+          </Row>
+        )}
       </Drawer>
     </Fragment>
   );

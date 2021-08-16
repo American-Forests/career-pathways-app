@@ -8,9 +8,7 @@ import { Component, Fragment } from "react";
 import locationPin from "./data/betterIcon.svg";
 import locationPin2 from "./data/betterIcon2.svg";
 import L from "leaflet";
-import { Space, Button, Drawer, Col, Row, Card, Select } from "antd";
 
-const { Option } = Select;
 const smolWindow = 855;
 
 const myIcon = L.icon({
@@ -29,7 +27,9 @@ class App extends Component {
     let afmapdata = require("./data/career_paths.json");
     this.state = {
       map: null,
-      currentPointOfInterest: null,
+      currentPointOfInterest: {
+        key: null,
+      },
       landingLocation: {
         lat: 41.850033,
         lng: -87.6500523,
@@ -130,148 +130,10 @@ class App extends Component {
 
         {window.innerWidth >= smolWindow && (
           <InfoCard
-            onSelection={() => this.onSelection.bind(this)}
+            onSelection={this.onSelection.bind(this)}
             data={this.state.data}
             currentPointOfInterest={this.state.currentPointOfInterest}
           />
-          // <Fragment>
-          //   <Card
-          //     title="Career Pathways Dashboard"
-          //     style={{
-          //       zIndex: 500,
-          //       width: "35%",
-          //       right: 25,
-          //       top: 50,
-          //       backgroundColor: "#FFFFFF",
-          //       position: "absolute",
-          //       overflowY: "scroll",
-          //       maxHeight: "800px",
-          //     }}
-          //   >
-          //     <div style={{}}>
-          //       <Row gutter={16} style={{ paddingBottom: "15px" }}>
-          //         <Select
-          //           showSearch
-          //           style={{ width: 200 }}
-          //           placeholder="Select An Organization"
-          //           optionFilterProp="children"
-          //           onChange={this.onSelection.bind(this)}
-          //           filterOption={(input, option) =>
-          //             option.children
-          //               .toLowerCase()
-          //               .indexOf(input.toLowerCase()) >= 0
-          //           }
-          //         >
-          //           {Object.keys(this.state.data).map((key, index) => {
-          //             let currentSpot = this.state.data[key];
-
-          //             if (currentSpot.Lat) {
-          //               return (
-          //                 <Option value={key}>{currentSpot["Org"]}</Option>
-          //               );
-          //             }
-          //           })}
-          //         </Select>
-          //       </Row>
-          //       <Space direction="vertical" size="100" />
-          //       <Row gutter={8}>
-          //         <p>
-          //           {this.state.currentPointOfInterest && <b>Organization: </b>}
-          //           {this.state.currentPointOfInterest && (
-          //               <b>Organization: </b>
-          //             ) &&
-          //             (this.state.currentPointOfInterest["Org"] ||
-          //               "No Org Available")}
-          //         </p>
-          //       </Row>
-          //       <Row gutter={16}>
-          //         <p>
-          //           {this.state.currentPointOfInterest && <b>Program: </b>}
-          //           {this.state.currentPointOfInterest && <b>Program: </b> &&
-          //             (this.state.currentPointOfInterest["Program"] ||
-          //               "No Program Available")}
-          //         </p>
-          //       </Row>
-          //       <Row gutter={8}>
-          //         <p>
-          //           {this.state.currentPointOfInterest && <b>Overview: </b>}
-          //           {this.state.currentPointOfInterest && <b>Overview: </b> &&
-          //             (this.state.currentPointOfInterest["Overview"] ||
-          //               "No Overview Available")}
-          //         </p>
-          //       </Row>
-          //       {this.state.currentPointOfInterest &&
-          //         this.state.currentPointOfInterest[
-          //           "Blurb.on.AF.involvement"
-          //         ] && (
-          //           <Row gutter={8}>
-          //             <p>
-          //               <b>American Forests Involvement: </b>
-          //               {(this.state.currentPointOfInterest &&
-          //                 this.state.currentPointOfInterest[
-          //                   "Blurb.on.AF.involvement"
-          //                 ]) ||
-          //                 "No involvement information available."}
-          //             </p>
-          //           </Row>
-          //         )}
-          //       {this.state.currentPointOfInterest &&
-          //         this.state.currentPointOfInterest["Images"] && (
-          //           <Row gutter={8}>
-          //             <img
-          //               src={this.state.currentPointOfInterest["Images"]}
-          //               width="100%"
-          //               height="100%"
-          //             ></img>
-          //           </Row>
-          //         )}
-          //       <Row gutter={8}>
-          //         <p>
-          //           {this.state.currentPointOfInterest && <b>City, State: </b>}
-          //           {this.state.currentPointOfInterest && (
-          //               <b>City, State: </b>
-          //             ) &&
-          //             (this.state.currentPointOfInterest["City"] ||
-          //               "No City Available") &&
-          //             ", " &&
-          //             (this.state.currentPointOfInterest["State"] ||
-          //               "No State Available")}
-          //         </p>
-          //       </Row>
-          //       <Row gutter={8}>
-          //         <p>
-          //           {this.state.currentPointOfInterest && (
-          //             <b>Training/Credentials: </b>
-          //           )}
-          //           {this.state.currentPointOfInterest && (
-          //               <b>Training/Credentials: </b>
-          //             ) &&
-          //             (this.state.currentPointOfInterest[
-          //               "Training.Credentials.Offered"
-          //             ] ||
-          //               "No Notes Available")}
-          //         </p>
-          //       </Row>
-          //       <Row gutter={8}>
-          //         {this.state.currentPointOfInterest &&
-          //           ((this.state.currentPointOfInterest["Link"] && (
-          //             <b>
-          //               <a
-          //                 href={
-          //                   this.state.currentPointOfInterest &&
-          //                   this.state.currentPointOfInterest["Link"]
-          //                 }
-          //                 target="_blank"
-          //               >
-          //                 Click Here to Learn More
-          //               </a>
-          //             </b>
-          //           )) ||
-          //             "No link available")}
-          //       </Row>
-          //     </div>
-          //   </Card>
-          // </Fragment>
         )}
 
         <Map

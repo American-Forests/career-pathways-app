@@ -25,10 +25,17 @@ export function InfoCard(props) {
               style={{ width: 200 }}
               placeholder="Select An Organization"
               optionFilterProp="children"
-              onChange={() => props.onSelection()}
-              filterOption={(input, option) =>
-                option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
-              }
+              value={props.currentPointOfInterest.key}
+              onChange={(e) => {
+                props.onSelection(e);
+              }}
+              filterOption={(input, option) => {
+                console.log(option);
+                return (
+                  option.children.toLowerCase().indexOf(input.toLowerCase()) >=
+                  0
+                );
+              }}
             >
               {Object.keys(props.data).map((key, index) => {
                 let currentSpot = props.data[key];
@@ -44,29 +51,30 @@ export function InfoCard(props) {
             </Select>
           </Row>
           <Space direction="vertical" size="100" />
-          <Row gutter={8}>
-            <p>
-              {props.currentPointOfInterest && <b>Organization: </b>}
-              {props.currentPointOfInterest && <b>Organization: </b> &&
-                (props.currentPointOfInterest["Org"] || "No Org Available")}
-            </p>
-          </Row>
-          <Row gutter={16}>
-            <p>
-              {props.currentPointOfInterest && <b>Program: </b>}
-              {props.currentPointOfInterest && <b>Program: </b> &&
-                (props.currentPointOfInterest["Program"] ||
-                  "No Program Available")}
-            </p>
-          </Row>
-          <Row gutter={8}>
-            <p>
-              {props.currentPointOfInterest && <b>Overview: </b>}
-              {props.currentPointOfInterest && <b>Overview: </b> &&
-                (props.currentPointOfInterest["Overview"] ||
-                  "No Overview Available")}
-            </p>
-          </Row>
+          {props.currentPointOfInterest && props.currentPointOfInterest["Org"] && (
+            <Row gutter={8}>
+              <p>
+                <b>Organization: </b> {props.currentPointOfInterest["Org"]}
+              </p>
+            </Row>
+          )}
+          {props.currentPointOfInterest &&
+            props.currentPointOfInterest["Program"] && (
+              <Row gutter={8}>
+                <p>
+                  <b>Program: </b>
+                  {props.currentPointOfInterest["Program"]}
+                </p>
+              </Row>
+            )}
+          {props.currentPointOfInterest &&
+            props.currentPointOfInterest["Overview"] && (
+              <Row gutter={8}>
+                <p>
+                  <b>Overview: </b> {props.currentPointOfInterest["Overview"]}
+                </p>
+              </Row>
+            )}
           {props.currentPointOfInterest &&
             props.currentPointOfInterest["Blurb.on.AF.involvement"] && (
               <Row gutter={8}>
@@ -88,40 +96,44 @@ export function InfoCard(props) {
                 ></img>
               </Row>
             )}
-          <Row gutter={8}>
-            <p>
-              {props.currentPointOfInterest && <b>City, State: </b>}
-              {props.currentPointOfInterest && <b>City, State: </b> &&
-                (props.currentPointOfInterest["City"] || "No City Available") &&
-                ", " &&
-                (props.currentPointOfInterest["State"] || "No State Available")}
-            </p>
-          </Row>
-          <Row gutter={8}>
-            <p>
-              {props.currentPointOfInterest && <b>Training/Credentials: </b>}
-              {props.currentPointOfInterest && <b>Training/Credentials: </b> &&
-                (props.currentPointOfInterest["Training.Credentials.Offered"] ||
-                  "No Notes Available")}
-            </p>
-          </Row>
-          <Row gutter={8}>
-            {props.currentPointOfInterest &&
-              ((props.currentPointOfInterest["Link"] && (
-                <b>
-                  <a
-                    href={
-                      props.currentPointOfInterest &&
-                      props.currentPointOfInterest["Link"]
-                    }
-                    target="_blank"
-                  >
-                    Click Here to Learn More
-                  </a>
-                </b>
-              )) ||
-                "No link available")}
-          </Row>
+          {props.currentPointOfInterest &&
+            (props.currentPointOfInterest.City ||
+              props.currentPointOfInterest.State) && (
+              <Row gutter={8}>
+                <p>
+                  <b>City, State: </b>{" "}
+                  {props.currentPointOfInterest["City"] ||
+                    ("No City Available" &&
+                      ", " &&
+                      props.currentPointOfInterest["State"]) ||
+                    "No State Available"}
+                </p>
+              </Row>
+            )}
+          {props.currentPointOfInterest &&
+            props.currentPointOfInterest["Training.Credentials.Offered"] && (
+              <Row gutter={8}>
+                <p>
+                  <b>Training/Credentials: </b>
+                  {props.currentPointOfInterest["Training.Credentials.Offered"]}
+                </p>
+              </Row>
+            )}
+          {props.currentPointOfInterest && props.currentPointOfInterest.Link && (
+            <Row gutter={8}>
+              <b>
+                <a
+                  href={
+                    props.currentPointOfInterest &&
+                    props.currentPointOfInterest["Link"]
+                  }
+                  target="_blank"
+                >
+                  Click Here to Learn More
+                </a>
+              </b>
+            </Row>
+          )}
         </div>
       </Card>
     </Fragment>
