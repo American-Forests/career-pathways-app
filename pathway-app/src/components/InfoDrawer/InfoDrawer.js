@@ -5,7 +5,7 @@ export function InfoDrawer(props) {
   return (
     <Fragment>
       <Drawer
-        title="Job Information Panel"
+        title="Program Information"
         mask={false}
         onClose={() => props.onJobInfoClose()}
         visible={props.jobinfovisible}
