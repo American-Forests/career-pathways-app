@@ -3,7 +3,7 @@ import { Component } from "react";
 import { Dropdown, Menu, Button } from "antd";
 import { QuestionCircleOutlined, MenuOutlined } from "@ant-design/icons";
 import styles from "./Nav.css";
-import logo from "../../data/aflogo.png"; // Tell Webpack this JS file uses this image
+import logo from "../../data/af-logo.svg"; // Tell Webpack this JS file uses this image
 
 const staticSiteUrl = "https://americanforests.org/";
 const smolWindow = 855;
@@ -68,8 +68,8 @@ export class Nav extends Component {
                 background: "#FFFFFF",
                 display: "flex",
                 justifyContent: "center",
-                width: "170px",
-                height: "110px",
+                width: "270px",
+                height: "100px",
                 position: "fixed",
                 left: "10px",
                 top: 0,
@@ -80,7 +80,7 @@ export class Nav extends Component {
               <img
                 src={logo}
                 alt="American Forests Logo"
-                width="170"
+                width="343"
                 height="100"
               />
             </a>
