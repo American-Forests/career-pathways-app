@@ -59,31 +59,33 @@ export class Nav extends Component {
               boxShadow: "0 1px 7px rgba(0, 0, 0, 0.2)",
             }}
           >
-            <a
-              className="brand"
-              href="/"
-              title="American Forests"
-              style={{
-                alignContent: "center",
-                background: "#FFFFFF",
-                display: "flex",
-                justifyContent: "center",
-                width: "270px",
-                height: "100px",
-                position: "fixed",
-                left: "10px",
-                top: 0,
-                boxShadow: "0 1px 7px rgba(0, 0, 0, 0.2)",
-                zIndex: 1000,
-              }}
-            >
-              <img
-                src={logo}
-                alt="American Forests Logo"
-                width="343"
-                height="100"
-              />
-            </a>
+            {this.props.embedStatus == false && (
+              <a
+                className="brand"
+                href="/"
+                title="American Forests"
+                style={{
+                  alignContent: "center",
+                  background: "#FFFFFF",
+                  display: "flex",
+                  justifyContent: "center",
+                  width: "270px",
+                  height: "100px",
+                  position: "fixed",
+                  left: "10px",
+                  top: 0,
+                  boxShadow: "0 1px 7px rgba(0, 0, 0, 0.2)",
+                  zIndex: 1000,
+                }}
+              >
+                <img
+                  src={logo}
+                  alt="American Forests Logo"
+                  width="343"
+                  height="100"
+                />
+              </a>
+            )}
             <div
               style={{
                 position: "absolute",

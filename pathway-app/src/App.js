@@ -111,22 +111,29 @@ class App extends Component {
       instructionsVisbile: false,
     });
   };
+
   render() {
     const position = [
       this.state.landingLocation.lat,
       this.state.landingLocation.lng,
     ];
+    const params = new URLSearchParams(window.location.search.substring(1));
+    const embedStatus = params.has("isEmbed");
+    console.log(embedStatus);
 
     return (
       <Fragment>
-        <Nav onClick={() => this.showInstructionsDrawer()} />
+        <Nav
+          onClick={() => this.showInstructionsDrawer()}
+          embedStatus={embedStatus}
+        />
 
         <InstructionsModal
           onInstructionsDrawerClose={() => this.onInstructionsDrawerClose()}
           instructionsVisbile={this.state.instructionsVisbile}
         />
 
-        {window.innerWidth < smolWindow && (
+        {(window.innerWidth < smolWindow || embedStatus == true) && (
           <InfoDrawer
             onJobInfoClose={() => this.onJobInfoClose()}
             jobinfovisible={this.state.jobinfovisible}
@@ -134,7 +141,7 @@ class App extends Component {
           />
         )}
 
-        {window.innerWidth >= smolWindow && (
+        {(window.innerWidth >= smolWindow || embedStatus == true) && (
           <InfoCard
             onSelection={this.onSelection.bind(this)}
             data={this.state.data}
