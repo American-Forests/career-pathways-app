@@ -59,7 +59,7 @@ export class Nav extends Component {
               boxShadow: "0 1px 7px rgba(0, 0, 0, 0.2)",
             }}
           >
-            {this.props.embedStatus == false && (
+            {this.props.embedStatus === false && (
               <a
                 className="brand"
                 href="/"

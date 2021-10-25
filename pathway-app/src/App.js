@@ -119,7 +119,6 @@ class App extends Component {
     ];
     const params = new URLSearchParams(window.location.search.substring(1));
     const embedStatus = params.has("isEmbed");
-    console.log(embedStatus);
 
     return (
       <Fragment>
@@ -133,7 +132,7 @@ class App extends Component {
           instructionsVisbile={this.state.instructionsVisbile}
         />
 
-        {(window.innerWidth < smolWindow || embedStatus == true) && (
+        {(window.innerWidth < smolWindow || embedStatus === true) && (
           <InfoDrawer
             onJobInfoClose={() => this.onJobInfoClose()}
             jobinfovisible={this.state.jobinfovisible}
@@ -141,7 +140,7 @@ class App extends Component {
           />
         )}
 
-        {(window.innerWidth >= smolWindow || embedStatus == true) && (
+        {(window.innerWidth >= smolWindow || embedStatus === true) && (
           <InfoCard
             onSelection={this.onSelection.bind(this)}
             data={this.state.data}
