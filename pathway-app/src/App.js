@@ -43,7 +43,7 @@ class App extends Component {
       },
       data: afmapdata,
       jobinfovisible: false,
-      instructionsVisbile: true,
+      instructionsVisible: true,
     };
   }
 
@@ -101,13 +101,13 @@ class App extends Component {
 
   showInstructionsDrawer = () => {
     this.setState({
-      instructionsVisbile: true,
+      instructionsVisible: true,
     });
   };
 
   onInstructionsDrawerClose = () => {
     this.setState({
-      instructionsVisbile: false,
+      instructionsVisible: false,
     });
   };
 
@@ -128,7 +128,7 @@ class App extends Component {
 
         <InstructionsModal
           onInstructionsDrawerClose={() => this.onInstructionsDrawerClose()}
-          instructionsVisbile={this.state.instructionsVisbile}
+          instructionsVisible={this.state.instructionsVisible}
         />
 
         {(window.innerWidth < smolWindow || embedStatus === true) && (
