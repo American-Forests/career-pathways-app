@@ -17,7 +17,7 @@ const staticSiteMenu = (
     <Menu.Item>
       <a
         rel="noopener noreferrer"
-        href={`${staticSiteUrl}/our-work/urban-forestry/workforce-development/`}
+        href={`${staticSiteUrl}/project/career-pathways/`}
         target="_blank"
       >
         Career Pathways
@@ -31,13 +31,13 @@ export class Nav extends Component {
 
   showInstructionsDrawer = () => {
     this.setState({
-      instructionsVisbile: true,
+      instructionsVisble: true,
     });
   };
 
   onInstructionsDrawer = () => {
     this.setState({
-      instructionsVisbile: false,
+      instructionsVisble: false,
     });
   };
 

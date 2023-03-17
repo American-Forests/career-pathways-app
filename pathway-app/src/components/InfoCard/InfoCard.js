@@ -6,7 +6,7 @@ export function InfoCard(props) {
   return (
     <Fragment>
       <Card
-        title="Career Pathways Dashboard"
+        title="Explore Career Pathways Partners"
         style={{
           zIndex: 500,
           width: "35%",
@@ -28,47 +28,25 @@ export function InfoCard(props) {
           {props.currentPointOfInterest && props.currentPointOfInterest["Org"] && (
             <Row gutter={8}>
               <p>
-                <b>Organization: </b> {props.currentPointOfInterest["Org"]}
+                <b>Organization/Company: </b> {props.currentPointOfInterest["Org"]}
               </p>
             </Row>
           )}
           {props.currentPointOfInterest &&
-            props.currentPointOfInterest["Program"] && (
+            props.currentPointOfInterest["Type"] && (
               <Row gutter={8}>
                 <p>
-                  <b>Program: </b>
-                  {props.currentPointOfInterest["Program"]}
+                  <b>Type: </b>
+                  {props.currentPointOfInterest["Type"]}
                 </p>
               </Row>
             )}
           {props.currentPointOfInterest &&
-            props.currentPointOfInterest["Overview"] && (
+            props.currentPointOfInterest["Career.Pathways.Workstream"] && (
               <Row gutter={8}>
                 <p>
-                  <b>Overview: </b> {props.currentPointOfInterest["Overview"]}
+                  <b>Career Pathways Workstream: </b> {props.currentPointOfInterest["Career.Pathways.Workstream"]}
                 </p>
-              </Row>
-            )}
-          {props.currentPointOfInterest &&
-            props.currentPointOfInterest["Blurb.on.AF.involvement"] && (
-              <Row gutter={8}>
-                <p>
-                  <b>American Forests Involvement: </b>
-                  {(props.currentPointOfInterest &&
-                    props.currentPointOfInterest["Blurb.on.AF.involvement"]) ||
-                    "No involvement information available."}
-                </p>
-              </Row>
-            )}
-          {props.currentPointOfInterest &&
-            props.currentPointOfInterest["Images"] && (
-              <Row gutter={8}>
-                <img
-                  src={props.currentPointOfInterest["Images"]}
-                  alt={props.currentPointOfInterest["Org"]}
-                  width="100%"
-                  height="100%"
-                ></img>
               </Row>
             )}
           {props.currentPointOfInterest &&
@@ -82,15 +60,6 @@ export function InfoCard(props) {
                       ", " &&
                       props.currentPointOfInterest["State"]) ||
                     "No State Available"}
-                </p>
-              </Row>
-            )}
-          {props.currentPointOfInterest &&
-            props.currentPointOfInterest["Training.Credentials.Offered"] && (
-              <Row gutter={8}>
-                <p>
-                  <b>Training/Credentials: </b>
-                  {props.currentPointOfInterest["Training.Credentials.Offered"]}
                 </p>
               </Row>
             )}

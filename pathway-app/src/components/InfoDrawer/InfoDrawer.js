@@ -25,29 +25,29 @@ export function InfoDrawer(props) {
         {props.currentPointOfInterest && props.currentPointOfInterest["Org"] && (
           <Row gutter={16}>
             <Col span={12}>
-              <b>Organization:</b> {props.currentPointOfInterest["Org"]}
+              <b>Organization/Company:</b> {props.currentPointOfInterest["Org"]}
             </Col>
           </Row>
         )}
         {props.currentPointOfInterest &&
-          props.currentPointOfInterest["Program"] && (
+          props.currentPointOfInterest["Type"] && (
             <Row gutter={16}>
               <Col span={24}>
-                <b>Program: </b>
-                {props.currentPointOfInterest["Program"]}
+                <b>Type: </b>
+                {props.currentPointOfInterest["Type"]}
               </Col>
             </Row>
           )}
         {props.currentPointOfInterest &&
-          props.currentPointOfInterest["Overview"] && (
+          props.currentPointOfInterest["Career.Pathways.Workstream"] && (
             <Row gutter={16}>
               <Col span={24}>
-                <b>Description: </b>
-                {props.currentPointOfInterest["Overview"]}
+                <b>Career Pathways Workstream: </b>
+                {props.currentPointOfInterest["Career.Pathways.Workstream"]}
               </Col>
             </Row>
           )}
-        {props.currentPointOfInterest &&
+        {/* {props.currentPointOfInterest &&
           props.currentPointOfInterest["Blurb.on.AF.involvement"] && (
             <Row gutter={16}>
               <Col span={24}>
@@ -68,7 +68,7 @@ export function InfoDrawer(props) {
                 height="100%"
               ></img>
             </Row>
-          )}
+          )} */}
         {props.currentPointOfInterest && (
           <Row gutter={16}>
             {" "}
@@ -85,7 +85,7 @@ export function InfoDrawer(props) {
             </Col>
           </Row>
         )}
-        {props.currentPointOfInterest &&
+        {/* {props.currentPointOfInterest &&
           props.currentPointOfInterest["otherNotes"] && (
             <Row gutter={16}>
               {" "}
@@ -94,7 +94,7 @@ export function InfoDrawer(props) {
                 {props.currentPointOfInterest["otherNotes"]}
               </Col>
             </Row>
-          )}
+          )} */}
         {props.currentPointOfInterest && props.currentPointOfInterest["Link"] && (
           <Row gutter={16}>
             <Col span={24}>
