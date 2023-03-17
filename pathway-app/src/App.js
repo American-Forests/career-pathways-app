@@ -40,7 +40,6 @@ class App extends Component {
         lat: 41.850033,
         lng: -87.6500523,
         zoom: 5,
-        description: "this was a cool thingy",
       },
       data: afmapdata,
       jobinfovisible: false,
@@ -172,7 +171,7 @@ class App extends Component {
                 icon={
                   this.state.currentPointOfInterest.key === key
                     ? curIcon
-                    : currentSpot["Blurb.on.AF.involvement"]
+                    : currentSpot["Career.Pathways.Workstream"]
                     ? afProjIcon
                     : regIcon
                 }

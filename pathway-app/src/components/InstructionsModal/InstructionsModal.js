@@ -11,11 +11,10 @@ export function InstructionsModal(props) {
     >
       <Row gutter={16}>
         <p>
-          <b>Explore Urban Forestry Job Training Programs</b>
+          <b>Explore Tree Equity Workforce Network Members and WorkForest Organizations</b>
         </p>
         <p>
-          Begin by zooming in and out of the map to view where urban forestry
-          job training programs are located.
+          Begin by zooming in and out of the map to view where Career Pathways partner programs are located.
         </p>
         <p>
           Click on the blue or green icons associated with a specific location.
