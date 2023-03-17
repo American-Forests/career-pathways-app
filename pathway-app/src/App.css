@@ -30,3 +30,7 @@ body {
   top: 200px;
   z-index: 1000;
 }
+
+.infoCard {
+  margin-bottom: 25px;
+}
