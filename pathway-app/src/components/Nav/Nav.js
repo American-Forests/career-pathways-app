@@ -31,13 +31,13 @@ export class Nav extends Component {
 
   showInstructionsDrawer = () => {
     this.setState({
-      instructionsVisble: true,
+      instructionsVisible: true,
     });
   };
 
   onInstructionsDrawer = () => {
     this.setState({
-      instructionsVisble: false,
+      instructionsVisible: false,
     });
   };
 
