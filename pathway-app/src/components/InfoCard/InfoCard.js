@@ -55,10 +55,12 @@ export function InfoCard(props) {
               <Row gutter={8}>
                 <p>
                   <b>City, State: </b>{" "}
-                  {props.currentPointOfInterest["City"] ||
-                    ("No City Available" &&
-                      ", " &&
-                      props.currentPointOfInterest["State"]) ||
+                  {(props.currentPointOfInterest &&
+                    props.currentPointOfInterest["City"]) ||
+                    "No City Available"}
+                  {", "}
+                  {(props.currentPointOfInterest &&
+                    props.currentPointOfInterest["State"]) ||
                     "No State Available"}
                 </p>
               </Row>

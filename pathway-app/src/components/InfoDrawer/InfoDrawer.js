@@ -47,54 +47,20 @@ export function InfoDrawer(props) {
               </Col>
             </Row>
           )}
-        {/* {props.currentPointOfInterest &&
-          props.currentPointOfInterest["Blurb.on.AF.involvement"] && (
-            <Row gutter={16}>
-              <Col span={24}>
-                <b>American Forests Involvement: </b>
-                {(props.currentPointOfInterest &&
-                  props.currentPointOfInterest["Blurb.on.AF.involvement"]) ||
-                  "No involvement information available."}
-              </Col>
-            </Row>
-          )}
-        {props.currentPointOfInterest &&
-          props.currentPointOfInterest["Images"] && (
-            <Row gutter={8}>
-              <img
-                src={props.currentPointOfInterest["Images"]}
-                alt={props.currentPointOfInterest["Org"]}
-                width="100%"
-                height="100%"
-              ></img>
-            </Row>
-          )} */}
         {props.currentPointOfInterest && (
           <Row gutter={16}>
             {" "}
             <Col span={24}>
               {" "}
               <b>City, State: </b>
-              {(props.currentPointOfInterest &&
-                props.currentPointOfInterest["City"]) ||
-                "No City Available"}
-              {", "}
-              {(props.currentPointOfInterest &&
-                props.currentPointOfInterest["State"]) ||
+              {props.currentPointOfInterest["City"] ||
+                ("No City Available" &&
+                  ", " &&
+                  props.currentPointOfInterest["State"]) ||
                 "No State Available"}
             </Col>
           </Row>
         )}
-        {/* {props.currentPointOfInterest &&
-          props.currentPointOfInterest["otherNotes"] && (
-            <Row gutter={16}>
-              {" "}
-              <Col span={12}>
-                <b>Notes: </b>
-                {props.currentPointOfInterest["otherNotes"]}
-              </Col>
-            </Row>
-          )} */}
         {props.currentPointOfInterest && props.currentPointOfInterest["Link"] && (
           <Row gutter={16}>
             <Col span={24}>
