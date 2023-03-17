@@ -53,14 +53,17 @@ export function InfoDrawer(props) {
             <Col span={24}>
               {" "}
               <b>City, State: </b>
-              {props.currentPointOfInterest["City"] ||
-                ("No City Available" &&
-                  ", " &&
-                  props.currentPointOfInterest["State"]) ||
+              {(props.currentPointOfInterest &&
+                props.currentPointOfInterest["City"]) ||
+                "No City Available"}
+              {", "}
+              {(props.currentPointOfInterest &&
+                props.currentPointOfInterest["State"]) ||
                 "No State Available"}
             </Col>
           </Row>
         )}
+
         {props.currentPointOfInterest && props.currentPointOfInterest["Link"] && (
           <Row gutter={16}>
             <Col span={24}>
