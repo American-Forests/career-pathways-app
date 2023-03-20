@@ -17,6 +17,20 @@ export function InfoCard(props) {
           overflowY: "scroll",
           maxHeight: "800px",
         }}
+        onClose={() => props.onJobInfoClose()}
+        visible={props.jobinfovisible}
+        placement={"right"}
+        footer={
+          <div
+            style={{
+              textAlign: "right",
+            }}
+          >
+            <Button onClick={() => props.onJobInfoClose()} type="primary">
+              Close
+            </Button>
+          </div>
+        }
       >
         <div>
           <Dropdown
