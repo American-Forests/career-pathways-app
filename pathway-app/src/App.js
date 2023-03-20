@@ -87,12 +87,6 @@ class App extends Component {
     });
   }
 
-  onJobInfoClose = () => {
-    this.setState({
-      jobinfovisible: false,
-    });
-  };
-
   showInstructionsDrawer = () => {
     this.setState({
       instructionsVisible: true,
