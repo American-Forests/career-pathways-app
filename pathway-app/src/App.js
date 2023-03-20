@@ -1,7 +1,7 @@
 import "./App.css";
 import { Nav } from "./components/Nav/Nav";
 import { InstructionsModal } from "./components/InstructionsModal/InstructionsModal";
-import { InfoDrawer } from "./components/InfoDrawer/InfoDrawer";
+// import { InfoDrawer } from "./components/InfoDrawer/InfoDrawer";
 import { InfoCard } from "./components/InfoCard/InfoCard";
 import { Map, TileLayer, Marker } from "react-leaflet";
 import { Component, Fragment } from "react";
@@ -87,17 +87,17 @@ class App extends Component {
     });
   }
 
-  showJobInfoDrawer = () => {
-    this.setState({
-      jobinfovisible: false,
-    });
-  };
+  // showJobInfoDrawer = () => {
+  //   this.setState({
+  //     jobinfovisible: true,
+  //   });
+  // };
 
-  onJobInfoClose = () => {
-    this.setState({
-      jobinfovisible: false,
-    });
-  };
+  // onJobInfoClose = () => {
+  //   this.setState({
+  //     jobinfovisible: false,
+  //   });
+  // };
 
   showInstructionsDrawer = () => {
     this.setState({
@@ -131,21 +131,21 @@ class App extends Component {
           instructionsVisible={this.state.instructionsVisible}
         />
 
-        {(window.innerWidth < smolWindow || embedStatus === true) && (
+        {/* {(window.innerWidth < smolWindow || embedStatus === true) && (
           <InfoDrawer
             onJobInfoClose={() => this.onJobInfoClose()}
             jobinfovisible={this.state.jobinfovisible}
             currentPointOfInterest={this.state.currentPointOfInterest}
           />
-        )}
+        )} */}
 
-        {(window.innerWidth >= smolWindow || embedStatus === true) && (
-          <InfoCard
-            onSelection={this.onSelection.bind(this)}
-            data={this.state.data}
-            currentPointOfInterest={this.state.currentPointOfInterest}
-          />
-        )}
+        {/* {(window.innerWidth >= smolWindow || embedStatus === true) && ( */}
+        <InfoCard
+          onSelection={this.onSelection.bind(this)}
+          data={this.state.data}
+          currentPointOfInterest={this.state.currentPointOfInterest}
+        />
+        {/* )} */}
 
         <Map
           className="map"
