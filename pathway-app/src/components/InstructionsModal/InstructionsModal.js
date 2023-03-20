@@ -5,7 +5,7 @@ export function InstructionsModal(props) {
   return (
     <Modal
       title="Instructions"
-      visible={props.instructionsVisbile}
+      visible={props.instructionsVisible}
       onOk={() => props.onInstructionsDrawerClose()}
       onCancel={() => props.onInstructionsDrawerClose()}
     >
