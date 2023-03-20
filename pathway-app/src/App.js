@@ -89,7 +89,7 @@ class App extends Component {
 
   showJobInfoDrawer = () => {
     this.setState({
-      jobinfovisible: true,
+      jobinfovisible: false,
     });
   };
 
