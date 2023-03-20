@@ -87,17 +87,11 @@ class App extends Component {
     });
   }
 
-  // showJobInfoDrawer = () => {
-  //   this.setState({
-  //     jobinfovisible: true,
-  //   });
-  // };
-
-  // onJobInfoClose = () => {
-  //   this.setState({
-  //     jobinfovisible: false,
-  //   });
-  // };
+  onJobInfoClose = () => {
+    this.setState({
+      jobinfovisible: false,
+    });
+  };
 
   showInstructionsDrawer = () => {
     this.setState({
@@ -131,15 +125,6 @@ class App extends Component {
           instructionsVisible={this.state.instructionsVisible}
         />
 
-        {/* {(window.innerWidth < smolWindow || embedStatus === true) && (
-          <InfoDrawer
-            onJobInfoClose={() => this.onJobInfoClose()}
-            jobinfovisible={this.state.jobinfovisible}
-            currentPointOfInterest={this.state.currentPointOfInterest}
-          />
-        )} */}
-
-        {/* {(window.innerWidth >= smolWindow || embedStatus === true) && ( */}
         <InfoCard
           onSelection={this.onSelection.bind(this)}
           data={this.state.data}
