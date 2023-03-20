@@ -7,6 +7,9 @@ export function InfoCard(props) {
     <Fragment>
       <Card
         title="Explore Career Pathways Partners"
+        visible={props.instructionsVisible}
+        onOk={() => props.onInfoCardClose()}
+        onCancel={() => props.onInfoCardClose()}
         style={{
           zIndex: 500,
           width: "35%",

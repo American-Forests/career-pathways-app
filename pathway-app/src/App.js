@@ -99,6 +99,12 @@ class App extends Component {
     });
   };
 
+  onInfoCardClose = () => {
+    this.setState({
+      jobinfovisible: false,
+    });
+  };
+
   render() {
     const position = [
       this.state.landingLocation.lat,
@@ -123,6 +129,8 @@ class App extends Component {
           onSelection={this.onSelection.bind(this)}
           data={this.state.data}
           currentPointOfInterest={this.state.currentPointOfInterest}
+          onInfoCardClose={() => this.onInfoCardClose()}
+          jobinfovisible={this.state.jobinfovisible}
         />
         {/* )} */}
 
