@@ -17,12 +17,12 @@ export function InstructionsModal(props) {
           Begin by zooming in and out of the map to view where Career Pathways partner programs are located.
         </p>
         <p>
-          Click on the blue or green icons associated with a specific location.
+          Click on the green icons associated with a specific location.
         </p>
         <p>
           The icon will turn red, indicating that this is the program you are
           currently viewing. A scrollable panel will pop up with the name and a
-          brief description of the program.
+          link to the organization's website.
         </p>
         <p>
           <i>Note:</i> You cannot continue exploring the map until you have
